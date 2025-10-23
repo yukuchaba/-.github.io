@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>自己紹介ページ</title>
+  <meta name="description" content="ゆくちゃばの自己紹介。Java/JavaScript、Processing、AI活用ブロック崩し制作。鳴潮・ウマ娘が大好き。" />
+  <style>
+    :root{
+      --bg: #0b0c10; --card:#111218; --muted:#9aa3af; --text:#e5e7eb; --brand:#7c3aed; --accent:#22d3ee; --ring:#a78bfa;
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f8fafc; --card:#ffffff; --muted:#4b5563; --text:#0f172a; --brand:#6d28d9; --accent:#0891b2; --ring:#7c3aed;}
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Noto Sans JP,Ubuntu,"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;line-height:1.6}
+    a{color:var(--accent);text-decoration:none}
+    a:focus,button:focus{outline:2px solid var(--ring);outline-offset:2px}
+    .container{max-width:1100px;margin-inline:auto;padding:24px}
+    header{display:flex;gap:16px;align-items:center;justify-content:space-between;margin-bottom:18px}
+    .btn{border:1px solid color-mix(in oklab, var(--ring) 50%, transparent);background:transparent;color:var(--text);padding:.55rem .9rem;border-radius:999px;cursor:pointer}
+    .btn:hover{background:color-mix(in oklab, var(--ring) 12%, transparent)}
+    .hero{display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:center;background:linear-gradient(180deg, color-mix(in oklab, var(--brand) 18%, transparent), transparent 70%);padding:18px;border-radius:18px;border:1px solid color-mix(in oklab, var(--ring) 30%, transparent)}
+    .avatar{width:120px;height:120px;border-radius:16px;object-fit:cover;border:2px solid color-mix(in oklab, var(--ring) 50%, transparent);background:#00000022}
+    h1{font-size:clamp(1.4rem,2.4vw,2.2rem);margin:0 0 6px}
+    .chip{display:inline-flex;align-items:center;gap:.45rem;border:1px solid color-mix(in oklab, var(--ring) 40%, transparent);padding:.25rem .6rem;border-radius:999px;font-size:.9rem}
+    .grid{display:grid;gap:16px;margin-top:18px}
+    @media (min-width:900px){ .grid{grid-template-columns:repeat(3,1fr)} }
+    .card{background:var(--card);border:1px solid color-mix(in oklab, var(--ring) 25%, transparent);border-radius:16px;padding:16px}
+    .card h2{font-size:1.05rem;margin:.2rem 0 .6rem}
+    .list{padding-left:18px;margin:0}
+    .list li{margin:.25rem 0}
+    .skills{display:flex;flex-wrap:wrap;gap:.5rem}
+    .skill{background:color-mix(in oklab, var(--brand) 12%, transparent);padding:.25rem .55rem;border-radius:8px;border:1px solid color-mix(in oklab, var(--brand) 35%, transparent);font-size:.92rem}
+    footer{margin-top:20px;color:var(--muted);font-size:.92rem}
+    .section-title{font-size:1.15rem;margin:.2rem 0 .4rem}
+    .links{display:flex;gap:.6rem;flex-wrap:wrap}
+    .links a{border:1px solid color-mix(in oklab, var(--ring) 35%, transparent);padding:.35rem .7rem;border-radius:10px}
+    .badge{font-size:.82rem;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header aria-label="Site controls">
+      <div class="links">
+        <button class="btn" id="langBtn" aria-label="Language toggle">🌐 日本語 / EN</button>
+        <button class="btn" id="themeBtn" aria-label="Theme toggle">🌓 Theme</button>
+      </div>
+      <div class="links">
+        <a href="#contact" class="btn">Contact</a>
+        <a href="#works" class="btn">Works</a>
+      </div>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <img src="profile.jpg" alt="プロフィール画像（ゆくちゃば）" class="avatar" loading="lazy" />
+      <div>
+        <h1 id="hero-title"><span id="nameJa"></span> <span class="badge" id="aka">ゆくちゃば</span></h1>
+        <div class="chip"><span id="tagline">鳴潮、ウマ娘が大好きです。</span></div>
+        <p id="summary" style="margin:.6rem 0 0">
+          さいたま市出身／宇都宮在住。ゲームとアニメが好き。目標はAIを活用して素晴らしいゲームを作ること。
+        </p>
+        <div class="links" style="margin-top:.7rem">
+          <a href="https://www.youtube.com/@pianoyukkuri/featured" target="_blank" rel="noopener">YouTube</a>
+          <a href="https://x.com/yukuchaba" target="_blank" rel="noopener">X (Twitter)</a>
+          <a href="mailto:yukucchaba@gmail.com">Mail</a>
+        </div>
+      </div>
+    </section>
+
+    <main class="grid">
+      <section class="card" aria-labelledby="about-title">
+        <h2 id="about-title" class="section-title">自己紹介</h2>
+        <p id="about">
+          Java / JavaScript を中心に、Processingでの開発や
+          AI活用に取り組んでいます。最近は完成度の高いブロック崩しゲームを制作しました。
+        </p>
+        <div class="skills" aria-label="skills">
+          <span class="skill">Java</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">Processing</span>
+          <span class="skill">AI活用</span>
+        </div>
+      </section>
+
+      <section class="card" id="works" aria-labelledby="works-title">
+        <h2 id="works-title" class="section-title">制作物</h2>
+        <h3 style="margin:.2rem 0">ブロック崩し（AI活用）</h3>
+        <ul class="list">
+          <li>概要：難易度調整・当たり判定の最適化・プレイフィール改善を反復し、完成度を追求。</li>
+          <li>技術：Java / Processing（ゲームループ、衝突処理、スコアリング、エフェクト）</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="events-title">
+        <h2 id="events-title" class="section-title">イベント参加</h2>
+        <ul class="list" id="events">
+          <li>博麗神社例大祭</li>
+          <li>あつまれ東方ステーション</li>
+          <li>ウマ娘 6th EVENT 秋公演 DAY2</li>
+          <li>鳴潮＆極楽湯コラボ</li>
+          <li>鳴潮 × PARCO POP UP STORE「穿つ烈光、迎ふ月光」</li>
+          <li>鳴潮 1st Anniversary Fes.</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="fav-title">
+        <h2 id="fav-title" class="section-title">好きなタイトル</h2>
+        <h3 style="margin:.2rem 0">鳴潮（Wuthering Waves）</h3>
+        <p id="wu-desc">
+          オープンワールドのアクションRPG。多彩なアクションと探索、キャラクター育成が楽しめます。
+        </p>
+        <h3 style="margin:.6rem 0 .2rem">ウマ娘 プリティーダービー</h3>
+        <p id="uma-desc">
+          Cygamesの育成シミュレーション＆レースゲーム。トレーニングやレース、ライブ演出が魅力です。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="links-title" id="contact">
+        <h2 id="links-title" class="section-title">リンク / 連絡</h2>
+        <div class="links">
+          <a href="https://www.youtube.com/@pianoyukkuri/featured" target="_blank" rel="noopener" aria-label="YouTubeリンク">YouTube</a>
+          <a href="https://x.com/yukuchaba" target="_blank" rel="noopener" aria-label="Xリンク">X (Twitter)</a>
+          <a href="mailto:yukucchaba@gmail.com" aria-label="メールリンク">yukucchaba@gmail.com</a>
+        </div>
+        <p class="badge" style="margin-top:.6rem">レスポンシブ対応 / キーボード操作可</p>
+      </section>
+    </main>
+
+    <footer>© <span id="year"></span> Yukuchaba</footer>
+  </div>
+
+  <script>
+    // ---- Content (JA/EN) ----
+    const DATA = {
+      ja: {
+        name: "ゆくちゃば",
+        aka: "ちゃばさん",
+        tagline: "鳴潮、ウマ娘が大好きです。",
+        summary: "さいたま市出身／宇都宮在住。ゲームとアニメが好き。目標はAIを活用して素晴らしいゲームを作ること。",
+        about: "Java / JavaScript を中心に、Processingでの開発やAI活用に取り組んでいます。最近は完成度の高いブロック崩しゲームを制作しました。",
+        wuthering: "オープンワールドのアクションRPG。多彩なアクションと探索、キャラクター育成が楽しめます。",
+        umamusume: "Cygamesの育成シミュレーション＆レースゲーム。トレーニングやレース、ライブ演出が魅力です。"
+      },
+      en: {
+        name: "Yukuchaba",
+        aka: "chabasan",
+        tagline: "Big fan of Wuthering Waves & Uma Musume.",
+        summary: "From Saitama, based in Utsunomiya. I love games & anime. My goal is to build great games by leveraging AI.",
+        about: "Focused on Java/JavaScript, Processing, and AI-assisted development. Recently built a polished brick-breaker.",
+        wuthering: "An open-world action RPG featuring expressive combat, exploration, and character growth.",
+        umamusume: "A training & racing simulation game by Cygames known for its racing strategy and live performances."
+      }
+    };
+
+    // ---- Lang / Theme Toggles ----
+    const $ = (s)=>document.querySelector(s);
+    const langBtn = $("#langBtn");
+    const themeBtn = $("#themeBtn");
+    const yearEl = $("#year");
+
+    function applyLang(lang){
+      const d = DATA[lang];
+      $("#nameJa").textContent = d.name;
+      $("#aka").textContent = d.aka;
+      $("#tagline").textContent = d.tagline;
+      $("#summary").textContent = d.summary;
+      $("#about").textContent = d.about;
+      $("#wu-desc").textContent = d.wuthering;
+      $("#uma-desc").textContent = d.umamusume;
+      document.documentElement.lang = lang === "ja" ? "ja" : "en";
+      localStorage.setItem("lang", lang);
+    }
+
+    langBtn.addEventListener("click", ()=>{
+      const cur = localStorage.getItem("lang") || "ja";
+      applyLang(cur === "ja" ? "en" : "ja");
+    });
+
+    function toggleTheme(){
+      const k = "theme";
+      const cur = localStorage.getItem(k) || "auto";
+      const next = cur === "dark" ? "light" : cur === "light" ? "auto" : "dark";
+      document.documentElement.dataset.theme = next;
+      document.body.style.filter = next === "dark" ? "invert(0)" : "";
+      localStorage.setItem(k, next);
+      // Simple theme hint: we keep colors via CSS; this just cycles a hint label on the button.
+      themeBtn.textContent = next === "dark" ? "🌙 Dark" : next === "light" ? "☀️ Light" : "🌓 Theme";
+    }
+    themeBtn.addEventListener("click", toggleTheme);
+
+    // Init
+    yearEl.textContent = new Date().getFullYear();
+    applyLang(localStorage.getItem("lang") || "ja");
+  </script>
+</body>
+</html>
